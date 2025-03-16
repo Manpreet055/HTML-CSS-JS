@@ -1,0 +1,109 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Times New Roman', serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(japan-background-digital-art.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Login Card */
+.card {
+    background: rgba(255, 255, 255, 0.1); /* Transparent glassmorphism */
+    backdrop-filter: blur(6px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 360px;
+    color: white;
+    border: 1px solid white;
+}
+
+/* Headings */
+.login-heading {
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-field {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 25px;
+    height: 40px;
+    width: 100%;
+    color: white;
+    text-indent: 10px;
+    margin-bottom: 15px;
+}
+
+.input-field::placeholder {
+    color: white;
+    font-weight: 600;
+}
+
+.input-field:focus {
+    border: 2px solid white;
+    outline: none;
+}
+
+/* Checkbox and Forgot Password */
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#remember-me {
+    margin: 0;
+}
+
+.remember-text {
+    color: white;
+}
+
+.forgot-password {
+    color: white;
+    text-decoration: none;
+}
+
+/* Button */
+.login-btn {
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    height: 40px;
+    width: 100%;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Register Link */
+.register-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: white;
+}
+
+.register-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
