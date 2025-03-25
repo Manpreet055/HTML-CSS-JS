@@ -1,0 +1,103 @@
+The DOM manipulation & Event handling roadmap 
+
+
+1. Core DOM Concepts
+
+What is the DOM? (Document Object Model)
+
+Difference between DOM, BOM, and Window Object
+
+document vs. window vs. navigator
+
+DOM Tree & Node Types (Element, Text, Comment, etc.)
+
+
+2. Selecting & Traversing Elements
+
+getElementById, getElementsByClassName, getElementsByTagName
+
+querySelector, querySelectorAll (Static vs Live Collections)
+
+parentElement, children, firstChild, lastChild, nextElementSibling
+
+matches(), closest(), contains()
+
+
+3. Modifying the DOM
+
+innerText vs. textContent vs. innerHTML
+
+setAttribute, getAttribute, removeAttribute
+
+style manipulation (element.style.property)
+
+classList.add(), remove(), toggle(), contains()
+
+Creating & inserting elements (createElement, appendChild, prepend, insertAdjacentHTML)
+
+Removing elements (removeChild, remove())
+
+Cloning elements (cloneNode(true/false))
+
+
+4. Event Handling in JavaScript
+
+addEventListener() & removeEventListener()
+
+Event Object (event.target, event.currentTarget, event.preventDefault)
+
+Common Events:
+
+Mouse Events (click, dblclick, mousedown, mouseup, mousemove, mouseenter, mouseleave)
+
+Keyboard Events (keydown, keyup, keypress, input, change)
+
+Form Events (submit, reset, focus, blur)
+
+Clipboard Events (copy, cut, paste)
+
+
+Event Delegation (handling multiple elements efficiently)
+
+Capturing vs. Bubbling (event.stopPropagation())
+
+once option in event listeners
+
+
+5. Storing & Handling User Data
+
+localStorage vs. sessionStorage (setItem, getItem, removeItem)
+
+Storing arrays & objects using JSON.stringify() and JSON.parse()
+
+FormData for handling form inputs
+
+
+6. Observers & Performance Optimization
+
+MutationObserver (detect real-time changes in the DOM)
+
+IntersectionObserver (detect if an element is visible)
+
+ResizeObserver (track element size changes)
+
+Performance tips:
+
+Debouncing & Throttling (optimize frequent events like scrolling)
+
+requestAnimationFrame() for smooth animations
+
+Using documentFragment to batch multiple DOM updates
+
+
+7. Mini-Projects for Practice
+
+Counter App (Increase, decrease, reset buttons)
+
+To-Do List (Add, remove tasks)
+
+Theme Switcher (Dark/Light mode with localStorage)
+
+Live Search Filter (Filter list items as user types)
+
+Form Validation (Check if input fields are empty or invalid)

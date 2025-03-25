@@ -58,10 +58,9 @@ console.log(z++);
 console.log(z++);    
 console.log(z++);    
 //                   : -- : same as increment but it decrease the value after represent 
-//                   : Etc..
 
 //      Ternary Opeartor:
-//              Ternary operators are used to gove condition in one line just like python single line if else statement.Syntax:
+//              Ternary operators are used to give condition in one line just like python single line if else statement.Syntax:
 //          condition ? ifconditontrue : ifconditionfalse:
 let myAge = 18;
 let result = myAge >= 20 ? "You are an adult" : "You are an Teenager";

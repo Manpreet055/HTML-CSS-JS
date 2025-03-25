@@ -20,7 +20,7 @@ Ultimate JavaScript Roadmap before React.js
 ✅ Objects: Properties, methods, Object.keys(), Object.values(), Object.entries()
 ✅ Destructuring (Array & Object)
 ✅ Spread & Rest Operators (...)
-✅ JSON (Convert objects to JSON & vice versa)
+✅ JSON (Convert objects to JSON & vice versa) // no need for now
 
 
 ---
