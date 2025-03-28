@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .button {
+        height: 40px;
+        width: 70px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .button-box {
+        border: 1px solid black;
+        height: 70%;
+        width: 85%;
+        border-radius: 25px;
+        background-color: black;
+        transition: 0.3s all;
+      }
+      .button-circle {
+        border: 1px solid black;
+        border-radius: 50%;
+        height: 100%;
+        width: 50%;
+        background-color: white;
+        position: relative;
+        top: -1px;
+        left: -2px;
+        transition: 0.5s all;
+      }
+      .button-switch .button-circle {
+        transform: translateX(100%);
+      }
+      #button2 {
+        position: absolute;
+        top: 30%;
+      }
+      #button3{
+        position: absolute;
+        top: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button" id="button1" data-toggle="button-switch">
+      <div class="button-box">
+        <div class="button-circle"></div>
+      </div>
+    </div>
+    <script>
+      let button = document.querySelector(".button");
+      let newButton = button.cloneNode(true);
+      newButton.id = "button2";
+      document.body.appendChild(newButton);
+
+      document.body.addEventListener("click", (event) => {
+        let clickedButton = event.target.closest(".button");
+        if (clickedButton) {
+          clickedButton.classList.toggle("button-switch");
+        }
+      });
+
+      let button3 = button.cloneNode(true);
+      button3.id="button3";
+      document.body.appendChild(button3);     
+    </script>
+  </body>
+</html>

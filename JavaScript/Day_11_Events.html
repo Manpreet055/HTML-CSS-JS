@@ -1,0 +1,111 @@
+<!-- Date 26 March 2025 Today i learn about Event Handling
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+      .toggle-dark-mode {
+        height: 7vh;
+        width: 10vw;
+        position: absolute;
+        top: 30%;
+        border-radius: 30px;
+        border: none;
+      }
+      .toggle-light-mode {
+        height: 7vh;
+        width: 10vw;
+        position: absolute;
+        top: 20%;
+        border-radius: 30px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non voluptatem ab
+      laborum, enim reprehenderit accusantium deleniti tempora reiciendis
+      corrupti pariatur ducimus minima ullam eaque cumque facere perferendis.
+      Recusandae, quibusdam hic.
+    </div>
+    <button class="toggle-dark-mode">dark-mode</button>
+    <button class="toggle-light-mode">light-mode</button>
+    <script>
+      let darkMode = document.querySelector("body");
+      let btn1 = document.querySelector(".toggle-dark-mode");
+      let btn2 = document.querySelector(".toggle-light-mode");
+      btn1.addEventListener("click", () => {
+        if (darkMode.classList.contains("dark-mode")) {
+          darkMode.removeAttribute("class");
+        } else {
+          darkMode.setAttribute("class", "dark-mode");
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box{
+            height: 30px;
+            width: 60px;
+            border-radius: 25px;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+        }
+        .circle{
+            background-color: white;
+            border-radius: 50%;
+            border: none;
+            outline-color:transparent ;
+            height: 100%;
+            width: 50%;
+            transition: 0.5s all;
+        }
+        .dark-mode{
+            background-color: black;
+            color: white;
+        }
+        .dark-mode .box{
+            background-color: gray;
+        }
+        .dark-mode .circle{
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="circle"></div>
+    </div>
+    <script>
+        let body = document.querySelector("body");
+        let box = document.querySelector(".box");
+
+        box.addEventListener("click",()=>{
+            body.classList.toggle("dark-mode");
+        })
+
+
+        
+    </script>
+</body>
+</html>
