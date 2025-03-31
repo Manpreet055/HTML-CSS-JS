@@ -1,0 +1,59 @@
+Topics to Study (Sorted by Priority):
+
+1. Event Handling (Weak Area)
+   - stopPropagation() and preventDefault().
+   - Event capturing vs. bubbling.
+   - Custom events (CustomEvent).
+
+2. Event Delegation (Weak Area)
+   - Correct usage of event.target and event.currentTarget.
+   - Handling child and parent elements properly.
+
+3. Asynchronous JavaScript
+   - Promises: then, catch, and finally.
+   - async/await for cleaner asynchronous code.
+   - Event loop and how JavaScript handles asynchronous operations.
+   - Fetch API for making HTTP requests.
+
+4. Debouncing and Throttling
+   - Debouncing: Delaying function execution to reduce event frequency.
+   - Throttling: Limiting function execution to a fixed interval.
+
+5. Mutation Observers
+   - Watching for changes in the DOM.
+
+6. JavaScript Modules
+   - import and export syntax.
+   - Default vs. named exports.
+   - How to use modules in modern JavaScript projects.
+
+7. Browser APIs
+   - Storage APIs: LocalStorage, SessionStorage, and Cookies.
+   - Geolocation API: Accessing user location.
+   - Notifications API: Sending browser notifications.
+   - WebSockets: Real-time communication.
+   - Canvas API: Drawing graphics on the web.
+
+8. Error Handling and Debugging
+   - try...catch and finally for error handling.
+   - Using console effectively for debugging.
+   - Debugging tools in the browser (e.g., Chrome DevTools).
+   - Design patterns (e.g., Singleton, Factory, Observer).
+
+9. Functional Programming
+   - Pure functions and immutability.
+   - Higher-order functions in depth.
+   - Currying and partial application.
+   - Composition of functions.
+
+10. Build Tools
+    - Webpack, Parcel, or Vite for bundling JavaScript.
+    - Babel for transpiling modern JavaScript.
+    - ESLint and Prettier for code quality and formatting.
+
+11. Build a Project
+    - Apply what you’ve learned by building projects like:
+      - A to-do list with local storage.
+      - A weather app using the Fetch API.
+      - A real-time chat app using WebSockets.
+
