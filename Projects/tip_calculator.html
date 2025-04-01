@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        border: 1px solid black;
+        border-radius: 25px;
+        background-color: antiquewhite;
+        height: 400px;
+        width: 400px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        display: grid;
+        grid-template-rows: repeat(5, 1fr);
+      }
+      #tip-result-display {
+        height: 80%;
+        width: 80%;
+        border: 1px solid black;
+        justify-self: center;
+        background-color: antiquewhite;
+        border: none;
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        font-size: 20px;
+      }
+      #tip-result-display:focus {
+        background-color: antiquewhite;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid black;
+      }
+      .bill {
+        height: 60%;
+        width: 50%;
+        font-size: 1.3rem;
+        border: none;
+        border-bottom: 1px solid black;
+        background-color: antiquewhite;
+      }
+      .bill:focus {
+        background-color: antiquewhite;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid black;
+      }
+      span {
+        position: relative;
+        left: -20px;
+      }
+      #calculate-tip-button {
+        height: 60%;
+        width: 50%;
+        justify-self: center;
+        align-self: center;
+        border-radius: 25px;
+        border-color: transparent;
+        background-color: rgb(241, 199, 147);
+      }
+      @media(max-width : 768px){
+        .container{
+         height: 300px;
+         width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Tip Calculator</h2>
+      <span
+        >Total Cash : <input class="bill" id="total-cash-input" type="number" />
+      </span>
+      <span
+        >Total bill : <input class="bill" id="total-bill-input" type="number" />
+      </span>
+      <div id="tip-result-display"></div>
+      <button id="calculate-tip-button">Submit</button>
+    </div>
+    <script>
+      let calculateTipButton = document.querySelector("#calculate-tip-button");
+      let totalBillInput = document.querySelector("#total-bill-input");
+      let totalCashInput = document.querySelector("#total-cash-input");
+      let tipResultDisplay = document.querySelector("#tip-result-display");
+
+      calculateTipButton.addEventListener("click", (event) => {
+        tipResultDisplay.textContent = "";
+        if (isNaN(totalBillInput.value) || isNaN(totalCashInput.value)) {
+          tipResultDisplay.textContent = "Please Enter a Numeric Value";
+        } else {
+          let tipAmount =
+            parseFloat(totalCashInput.value) - parseFloat(totalBillInput.value);
+          tipResultDisplay.textContent = `Your tip is: ${tipAmount.toFixed(
+            2
+          )} AED`;
+        }
+        console.log(event);
+      });
+    </script>
+  </body>
+</html>

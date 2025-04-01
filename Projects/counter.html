@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 300px;
+        width: 300px;
+        border-radius: 25px;
+        border: 2px solid black;
+        background-color: bisque;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 125px 110px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .display {
+        grid-column: 1/3;
+        height: 90%;
+        width: 90%;
+        border: 2px groove black;
+        background-color: rgb(241, 234, 224);
+        border-radius: 25px;
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        margin-top: 10px;
+      }
+      .button {
+        border-radius: 25px;
+        height: 50%;
+        width: 50%;
+        align-self: center;
+        justify-self: center;
+        font-size: 2rem;
+        background-color: rgb(241, 234, 224);
+        border: 1px groove black;
+      }
+      .reset-button {
+        justify-self: center;
+        align-self: center;
+        grid-column: 1/3;
+        height: 60%;
+        width: 50%;
+        border-radius: 25px;
+        background-color: rgb(241, 234, 224);
+        border: 1px groove black;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="display"></div>
+      <button class="button" id="increase">+</button>
+      <button class="button" id="decrease">-</button>
+      <button class="reset-button">Reset</button>
+    </div>
+    <script>
+      let display = document.querySelector(".display");
+      let increasebtn = document.querySelector("#increase");
+      let decreasebtn = document.querySelector("#decrease");
+      let resetButton = document.querySelector(".reset-button");
+      let count = 0;
+      display.textContent = count;
+      increasebtn.addEventListener("click", () => {
+        count += 1;
+        display.textContent = count;
+      });
+      decreasebtn.addEventListener("click", () => {
+        if (count <= 0) {
+          return;
+        } else {
+          count -= 1;
+          display.textContent = count;
+        }
+      });
+      resetButton.addEventListener("click", () => {
+        count=0;
+        display.textContent=count;
+      });
+    </script>
+  </body>
+</html>
