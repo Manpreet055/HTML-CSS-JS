@@ -1,0 +1,112 @@
+-----------------------Advanced Asynchronous Programming Topics-----------------------
+
+1. Understanding Callbacks (Basic Level)
+
+✅ What is a Callback Function?
+✅ Writing Simple Callback Functions
+✅ Synchronous vs Asynchronous Code
+✅ Callback Hell & Its Problems
+
+
+---
+
+2. Introduction to Promises (Intermediate Level)
+
+✅ What is a Promise?
+✅ Promise States: Pending, Fulfilled, Rejected
+✅ Creating & Using Promises (new Promise())
+✅ .then() and .catch() for Handling Promises
+✅ .finally() Method
+
+
+---
+
+3. Advanced Promises (Intermediate to Advanced Level)
+
+✅ Chaining Multiple Promises (then chaining)
+✅ Handling Errors in Promise Chains
+✅ Promise.all() – Running Multiple Promises in Parallel
+✅ Promise.allSettled() – Waiting for All Promises (Even If Some Fail)
+✅ Promise.race() – First Resolved or Rejected Promise Wins
+✅ Promise.any() – First Resolved Promise Wins
+✅ Converting Callbacks to Promises (Promisification)
+
+
+---
+
+4. Introduction to Async/Await (Advanced Level)
+
+✅ What is async and await?
+✅ Writing Your First async Function
+✅ How await Works with Promises
+✅ Error Handling in Async/Await (try...catch)
+
+
+---
+
+5. Advanced Async/Await Concepts (Master Level)
+
+✅ Chaining Async Functions (await inside loops)
+✅ Sequential vs Parallel Execution in Async/Await
+✅ Using Promise.all() with async/await (Parallel Execution)
+✅ Using Promise.allSettled(), Promise.race(), and Promise.any() in Async/Await
+✅ Handling Timeouts & Delays (setTimeout with Promises)
+✅ Debugging Async Code (Common Mistakes & Performance Issues)
+
+
+---
+
+6. Advanced Concepts in Asynchronous Programming
+
+✅ Microtasks vs Macrotasks (Event Loop)
+   - Learn how JavaScript handles asynchronous tasks using the event loop.
+   - Understand the difference between microtasks (e.g., Promises) and macrotasks (e.g., setTimeout).
+
+✅ Async Generators
+   - Learn how to use async generators to handle streams of asynchronous data.
+   - Useful for processing large datasets or real-time data.
+
+✅ Web Workers
+   - Learn how to use Web Workers to run JavaScript code in the background without blocking the main thread.
+   - Useful for handling CPU-intensive tasks in web applications.
+
+✅ Streams and Async Iteration
+   - Learn how to work with streams in Node.js or the browser.
+   - Useful for processing large files or real-time data incrementally.
+
+
+---
+
+7. Real-World Applications of Async/Await
+
+✅ Fetching Data from an API (fetch() with Async/Await)
+✅ Handling Multiple API Requests at Once
+✅ Using async/await in Loops (map, forEach, for...of)
+✅ Graceful Error Handling (Retry Mechanism, Fallback Data)
+✅ Cancelling Async Operations (AbortController)
+✅ Processing Streams with Async Generators
+✅ Using Web Workers for Background Tasks
+
+
+---
+
+8. Best Practices & Performance Optimization
+
+✅ Avoiding async Inside Loops – Best Alternatives
+✅ When to Use Promise.all() vs Sequential Execution
+✅ Error Propagation & Graceful Handling
+✅ Writing Clean, Maintainable Async Code
+✅ Optimizing Performance with Streams and Web Workers
+
+
+---
+
+9. Hands-on Projects for Practice
+
+🔥 Weather App – Fetch & Display Weather Data
+🔥 Random User Generator – Fetch & Display User Profiles
+🔥 To-Do App with API – CRUD Operations with Async/Await
+🔥 Movie Search App – Fetch & Display Movie Data
+🔥 E-Commerce Product Fetcher – Display Products from an API
+🔥 File Processor – Process Large Files Using Streams
+🔥 Background Task Manager – Use Web Workers for Heavy Computations
