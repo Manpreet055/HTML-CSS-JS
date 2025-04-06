@@ -47,7 +47,7 @@
 5. Advanced Async/Await Concepts (Master Level)
 
 ✅ Chaining Async Functions (await inside loops)
-✅ Sequential vs Parallel Execution in Async/Await
+✅ Sequential vs Parallel Execution in Async/Await 
 ✅ Using Promise.all() with async/await (Parallel Execution)
 ✅ Using Promise.allSettled(), Promise.race(), and Promise.any() in Async/Await
 ✅ Handling Timeouts & Delays (setTimeout with Promises)
@@ -56,7 +56,31 @@
 
 ---
 
-6. Advanced Concepts in Asynchronous Programming
+6. Real-World Applications of Async/Await
+
+✅ Fetching Data from an API (fetch() with Async/Await)
+✅ Handling Multiple API Requests at Once
+✅ Using async/await in Loops (map, forEach, for...of)
+✅ Graceful Error Handling (Retry Mechanism, Fallback Data)
+✅ Cancelling Async Operations (AbortController)
+✅ Processing Streams with Async Generators
+✅ Using Web Workers for Background Tasks
+
+
+---
+
+7. Best Practices & Performance Optimization
+
+✅ Avoiding async Inside Loops – Best Alternatives
+✅ When to Use Promise.all() vs Sequential Execution
+✅ Error Propagation & Graceful Handling
+✅ Writing Clean, Maintainable Async Code
+✅ Optimizing Performance with Streams and Web Workers
+
+
+---
+
+8. Advanced Concepts in Asynchronous Programming
 
 ✅ Microtasks vs Macrotasks (Event Loop)
    - Learn how JavaScript handles asynchronous tasks using the event loop.
@@ -77,31 +101,29 @@
 
 ---
 
-7. Real-World Applications of Async/Await
+9. Extra Topics to Explore
 
-✅ Fetching Data from an API (fetch() with Async/Await)
-✅ Handling Multiple API Requests at Once
-✅ Using async/await in Loops (map, forEach, for...of)
-✅ Graceful Error Handling (Retry Mechanism, Fallback Data)
-✅ Cancelling Async Operations (AbortController)
-✅ Processing Streams with Async Generators
-✅ Using Web Workers for Background Tasks
+Debouncing and Throttling
+   - Debouncing: Delaying function execution to reduce event frequency.
+   - Throttling: Limiting function execution to a fixed interval.
+
+Mutation Observers
+   - Watching for changes in the DOM.
+   - Design patterns (e.g., Singleton, Factory, Observer).
+   - Currying and partial application.
 
 
----
-
-8. Best Practices & Performance Optimization
-
-✅ Avoiding async Inside Loops – Best Alternatives
-✅ When to Use Promise.all() vs Sequential Execution
-✅ Error Propagation & Graceful Handling
-✅ Writing Clean, Maintainable Async Code
-✅ Optimizing Performance with Streams and Web Workers
+Browser APIs
+   - Storage APIs: LocalStorage, SessionStorage, and Cookies.
+   - Geolocation API: Accessing user location.
+   - Notifications API: Sending browser notifications.
+   - WebSockets: Real-time communication.
+   - Canvas API: Drawing graphics on the web.
 
 
 ---
 
-9. Hands-on Projects for Practice
+10. Hands-on Projects for Practice
 
 🔥 Weather App – Fetch & Display Weather Data
 🔥 Random User Generator – Fetch & Display User Profiles

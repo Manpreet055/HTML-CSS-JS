@@ -1,4 +1,1 @@
-function regular() {
-  console.log(this); // Global object (window in browsers)
-}
-regular();
+[promise1, promise2, promise3]

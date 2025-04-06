@@ -56,10 +56,10 @@
 
 //To tackle this callback hell situation the concepts of promises is introduced ..
 
-const promise = new Promise((resolve, reject) => {
-  const data = false;
-  if (data) {
-    resolve("Data fetching suessfully..");
+let promise = new Promise((resolve, reject) => {
+  let response = true;
+  if (response) {
+    resolve("Data fetching sucessful..");
   } else {
     reject("An error occured..");
   }
@@ -67,9 +67,8 @@ const promise = new Promise((resolve, reject) => {
 
 promise
   .then((result) => {
-    console.log(result);
+    console.log("sucess..", result);
   })
   .catch((error) => {
-    console.error(error);
+    console.error("error : ", error);
   });
-console.log(promise);
