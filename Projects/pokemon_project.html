@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        background-color: bisque;
+        height: 300px;
+        width: 300px;
+        border: 2px solid black;
+        border-radius: 25px;
+        display: grid;
+        grid-template-rows: 60% 15% 25%;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .pokemonName {
+        background-color: azure;
+        height: 50%;
+        width: 60%;
+        justify-self: center;
+        border-radius: 10px;
+        padding-left: 15px;
+      }
+      .display {
+        background-color: azure;
+        border: 1px solid black;
+        height: 90%;
+        width: 75%;
+        justify-self: center;
+        align-self: flex-end;
+        border-radius: 25px;
+      }
+      .image {
+        display: none;
+        height: 95%;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .search {
+        background-color: azure;
+        width: 50%;
+        height: 60%;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 15px;
+        border-radius: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="display">
+        <img class="image" src="" alt="" />
+      </div>
+      <input class="pokemonName" type="text" placeholder="Enter Pokemon name" />
+      <button class="search">Search</button>
+    </div>
+
+    <script src="pokemon_logic.js"></script>
+  </body>
+</html>
