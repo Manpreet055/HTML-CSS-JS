@@ -62,30 +62,42 @@
       <div class="display"></div>
       <button class="button" id="increase">+</button>
       <button class="button" id="decrease">-</button>
-      <button class="reset-button">Reset</button>
+      <button class="reset-button" id="reset">Reset</button>
     </div>
     <script>
-      let display = document.querySelector(".display");
+            let display = document.querySelector(".display");
       let increasebtn = document.querySelector("#increase");
       let decreasebtn = document.querySelector("#decrease");
       let resetButton = document.querySelector(".reset-button");
-      let count = 0;
+      
+      // Retrieve the stored count value from localStorage or default to 0
+      let count = localStorage.getItem("count") ? parseInt(localStorage.getItem("count")) : 0;
+      
+      // Display the retrieved count value
       display.textContent = count;
+      
       increasebtn.addEventListener("click", () => {
         count += 1;
         display.textContent = count;
+        localStorage.setItem("count", count); // Update localStorage
       });
+      
       decreasebtn.addEventListener("click", () => {
         if (count <= 0) {
           return;
         } else {
           count -= 1;
           display.textContent = count;
+          localStorage.setItem("count", count); // Update localStorage
         }
       });
+      
       resetButton.addEventListener("click", () => {
-        count=0;
-        display.textContent=count;
+        if(confirm("Are you sure to reset ?")){
+          count = 0;
+        display.textContent = count;
+        localStorage.setItem("count", count);
+        } // Update localStorage
       });
     </script>
   </body>

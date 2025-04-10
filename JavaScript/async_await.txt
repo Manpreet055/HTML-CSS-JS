@@ -59,7 +59,7 @@
 6. Real-World Applications of Async/Await
 
 ✅ Fetching Data from an API (fetch() with Async/Await)
-✅ Handling Multiple API Requests at Once
+✅ Handling Multiple API Requests at Once 
 ✅ Using async/await in Loops (map, forEach, for...of)
 ✅ Graceful Error Handling (Retry Mechanism, Fallback Data)
 ✅ Cancelling Async Operations (AbortController)

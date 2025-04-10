@@ -130,12 +130,13 @@
     <script>
         let button = document.querySelector(".button");
         let container = document.querySelector(".container");
-        let arr = [];
+        let arr = localStorage.getItem("arr") ? localStorage.getItem("arr") : [0];
       document.body.addEventListener("click", (event) => {
         let clickedButton = event.target.closest(".button");
         if (clickedButton) {
           clickedButton.classList.toggle("buttonclick");
           container.classList.toggle("darkmode-container");
+          localStorage.setItem("arr",arr);
         }
       });
       let buttons = document.querySelectorAll(".box");

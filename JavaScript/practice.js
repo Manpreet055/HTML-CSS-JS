@@ -1,27 +1,77 @@
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-numbers.forEach((Number) => {
-  console.log(Number * 2);
-});
-const user = { name: "John", address: { city: "New York" } };
-console.log(user.address?.city); // New York
-console.log(user.address?.zip); // undefined
-// In a method
-const obj = {
-  name: "John",
-  greet() {
-    console.log(this.name); // John
-  },
-};
-obj.greet();
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     const fetchingData = Math.random() > 0.5;
+//     if (fetchingData) {
+//       resolve("fetching data");
+//     } else {
+//       reject("fetching data is unsuessful..");
+//     }
+//   }, 2000);
+// });
 
-// In a regular function
-function regular() {
-  console.log(this); // Global object (window in browsers)
+// const promise2 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     const processingData = Math.random() > 0.5;
+//     if (processingData) {
+//       resolve("Data processed");
+//     } else {
+//       reject("Failed to process data..");
+//     }
+//   }, 3000);
+// });
+
+/* promise
+  .then((result) => {
+    console.log(result);
+    return promise2;
+  })
+  .then((result) => {
+    console.log(result);
+  })
+
+  .catch((error) => {
+    console.error(error);
+  });
+console.log(promise); */
+
+/* Promise.all([promise, promise2]).then((result) => {
+  console.log(result);
+}).catch((error) => {
+  console.error(error)
+}) */
+
+async function fetchData() {
+  console.log("Fetching data...");
+  try {
+    const promise = await new Promise((resolve, reject) => {
+      const data = Math.random() > 0.5;
+      if (data) {
+      resolve("Data fetched sucessfully")
+      } else {
+        reject("Failed to fetch data ")
+    }
+    })
+    console.log(promise);
+  } catch (error) {
+    console.error(error);
+  }
 }
-regular();
 
-// In an arrow function
-const arrow = () => {
-  console.log(this); // Lexically inherits `this` from the surrounding scope
-};
-arrow();
+async function processImg() {
+  console.log("Processing the image..");
+  try {
+    const imgProcess = Math.random() > 0.5;
+    const promise = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (imgProcess) {
+          resolve("Image processing sucessful");
+        } else {
+          reject("Failed to process the image")
+        }
+      }, 2000);
+    })
+    console.log(promise);
+  } catch (error) {
+    console.error(error);
+  }
+}

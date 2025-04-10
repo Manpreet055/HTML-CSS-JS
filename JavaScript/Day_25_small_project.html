@@ -1,0 +1,92 @@
+<!-- Date 10 april 2025 Today i learn local and session storage what are there types an so many methods of it ->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 30px;
+        width: 80px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .component {
+        all: unset;
+        height: 100%;
+        width: 100%;
+        font-size: 25px;
+        font-weight: 600;
+        background-color: gray;
+        color: white;
+        transition: 0.3s all;
+        user-select: none;
+      }
+      .component:hover {
+        background-color: black;
+      }
+      #newbutton {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+      }
+      #newbutton1 {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="component" id="decrement">-</button>
+      <div class="component" id="number"></div>
+      <button class="component" id="increment">+</button>
+    </div>
+    <script>
+      const createNewButton = (id, localStorageKey, displayId) => {
+        const container = document.querySelector(".container");
+        newButton = container.cloneNode(true);
+        newButton.id = id;
+        document.body.appendChild(newButton);
+        const increasebtn = newButton.querySelector(".component:nth-child(3)");
+        const decreasebtn = newButton.querySelector(".component:nth-child(1)");
+        const display = newButton.querySelector(".component:nth-child(2)");
+        let count = localStorage.getItem(localStorageKey)
+          ? parseInt(localStorage.getItem(localStorageKey))
+          : 1;
+        display.textContent = count;
+        increasebtn.addEventListener("click", () => {
+          if (count < 15) {
+            count += 1;
+            display.textContent = count;
+            localStorage.setItem(localStorageKey, count);
+          }
+        });
+        decreasebtn.addEventListener("click", () => {
+          if (count > 1) {
+            count -= 1;
+            display.textContent = count;
+            localStorage.setItem(localStorageKey, count);
+          }
+        });
+      };
+      createNewButton("number", "count1");
+      createNewButton("newbutton", "count2  ");
+     let tasks = ["learn coding" ,"apply for job" , " get a job"];
+     localStorage.setItem("tasks",JSON.stringify(tasks));
+     let task = JSON.parse(localStorage.getItem("tasks"));
+     task.push("escape");
+     localStorage.setItem("tasks",JSON.stringify(task))
+     console.log(task);
+    </script>
+  </body>
+</html> -->
