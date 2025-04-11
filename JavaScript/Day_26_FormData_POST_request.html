@@ -1,0 +1,124 @@
+<!-- Date 11 april 2025 Today i learn formData handling using FormData object in JS and
+also learn how to upload form data onto API(backend)-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Some styling  for input form -->
+    <style> 
+      .container {
+        border: 1px solid black;
+        height: 400px;
+        width: 350px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 25px;
+      }
+      form {
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: 1fr;
+        height: 100%;
+        width: 100%;
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+      }
+      .form-instances {
+        outline-color: none;
+        user-select: none;
+        border: none;
+        height: 55%;
+        width: 75%;
+        border-bottom: 1px solid black;
+        width: 80%;
+        font-size: 20px;
+        line-height: 1;
+        vertical-align: bottom;
+      }
+      .form-instances:focus {
+        outline: none;
+      }
+      .form-instances::placeholder {
+        opacity: 35%;
+      }
+
+      button {
+        height: 40%;
+        width: 60%;
+        border-radius: 25px;
+        border: none;
+        background-color: rgb(246, 223, 193);
+      }
+      button:hover {
+        background-color: rgb(230, 195, 150);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Html code of defining tags and input feilds etc. -->
+    <div class="container">
+      <form action="">
+        <input
+          class="form-instances"
+          name="username"
+          type="text"
+          placeholder="Enter your name"
+          required
+        />
+        <input
+          class="form-instances"
+          name="email"
+          type="email"
+          placeholder="Enter you Email"
+          required
+        />
+        <input
+          class="form-instances"
+          name="Mobile-number"
+          type="tel"
+          placeholder="Enter your Number"
+          required
+        />
+        <button type="submit" name="Submit" required>Submit</button>
+      </form>
+      <script src="script.js">
+        //Main logic behind it .. 
+        let form = document.querySelector("form"); //selecting the form element 
+        //Build a async funtion to upload multiple form data to an api,This one take form name as a parameter. this is the code i have converted into async code , chat gpt teach me what is form data and post request and the stuff .it gives me promises example to do it but i reinforce my async await knowledge and convert it into async function ;;
+        async function postData(formName) {
+          let formData = new FormData(formName);
+          let uploadData = await fetch(
+            "https://jsonplaceholder.typicode.com/posts",
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+          let uploadedData = await uploadData.json();
+          return uploadedData;
+
+        }
+        // to get uploaded data although it does not return the data beacause it is a fake API anyway i build the logic to get data from it , i just take a little help of chatgpt to find error and the error is that i was not using await keyword while callinh both function,it start process the data of postData function without waiting it finish to upload the data..
+        async function getuploadedData(postData){
+          let response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postData.id}`);
+          let getData = await response.json();
+          console.log(getData);
+        }
+        // adding event listner to the form 
+        form.addEventListener("submit",async (event) => {
+          event.preventDefault();
+            let uploadedData = await postData(form); // calling the post data function to upload the form data to the so called backend 
+            await getuploadedData(uploadedData);//trying to get the data which i have recently uploaded .(it is returing 404 error(not found) beacause of fake API)
+        });
+      </script>
+    </div>
+  </body>
+</html>
+
+// So this is what i have learned today .... handling form data using FormData  object and then upload that data on to API
