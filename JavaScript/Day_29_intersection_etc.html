@@ -1,0 +1,78 @@
+<!-- 
+Day 29 – Date: 14 April 2025
+
+✅ Today I learned:
+1. **Intersection Observer**
+   - It's a browser API that lets us **observe when an element enters or exits the viewport**.
+   - Useful for:
+     - Lazy loading images
+     - Infinite scrolling
+     - Triggering animations when elements come into view
+     - Analytics (tracking visibility)
+
+2. **Document Fragment**
+   - A lightweight DOM container used to build elements **off-screen in memory**.
+   - Instead of adding elements one-by-one to the DOM (which causes performance issues), we add them to a fragment and then append it to the DOM in one go.
+   - This improves performance significantly, especially when creating large lists or elements dynamically.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        height: 200px;
+        width: 200px;
+        text-align: center;
+        align-content: center;
+        border: 1px solid black;
+        margin-bottom: 25px;
+        transform: translateX(200px);
+        opacity: 0;
+        transition: 0.3s all;
+        list-style: none;
+        background-color: aqua;
+      }
+      .visible {
+        transform: translate(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+      let container = document.querySelector(".container");
+      let fragment = document.createDocumentFragment();
+
+      for (let i = 1; i <= 20; i++) {
+        let list = document.createElement("li");
+        list.className = "card";
+        list.textContent = `item${i}`;
+        fragment.appendChild(list);
+      }
+      container.appendChild(fragment);
+      let cards = document.querySelectorAll(".card");
+      let observer = new IntersectionObserver(
+        (enteries) => {
+          enteries.forEach((entry) =>
+            entry.target.classList.toggle("visible", entry.isIntersecting)
+          );
+        },
+        {
+          threshold: 0.5,
+        }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+    </script>
+  </body>
+</html>
