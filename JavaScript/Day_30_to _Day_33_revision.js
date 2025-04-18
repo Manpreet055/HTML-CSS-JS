@@ -69,17 +69,17 @@
 // })
 
 // 2D Array 
-let arr = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
+// let arr = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ];
 
-for (let i = 0; i < arr.length; i++){
-  for (let j = 0; j < arr[i].length; j++){
-    console.log(arr[i][j]);
-  }
-}
+// for (let i = 0; i < arr.length; i++){
+//   for (let j = 0; j < arr[i].length; j++){
+//     console.log(arr[i][j]);
+//   }
+// }
 
 
 // let arr = [2,3,4,1,5,6,0,9,7,8,9,6];
@@ -114,4 +114,29 @@ for (let i = 0; i < arr.length; i++){
 // let newArr = arr.map((x) => x + 2); Map method
 // arr = arr.filter((x) => x % 2 === 0); Filter method is used to filter items based on condtion
 // arr = arr.reduce((x, y) => x + y); return single value
-console.log(arr);
+// console.log(arr);
+
+// let arr = [2, 3, 4, 1, 5, 6, 0, 9, 7, 8, 9, 6];
+
+// let[a,b,c,d,...rest] = arr;
+// console.log(a)
+// console.log(b)
+// console.log(c)
+// console.log(d)
+// console.log(rest)
+
+// let arr2 = [...arr, 2, 3, 4];
+// console.log(arr2);
+
+let person = {
+  name: "Manpreet",
+  age: 22,
+  jobRole: "Frontend Developer",
+  show() {
+    console.log(this.age);
+  }
+}
+person.show();
+// console.log(person.name.city?.address ??"Not define");
+
+

@@ -1,22 +1,82 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <input type="text" name="username" placeholder="Enter your name ">
-  <div class="display"></div>
-  <button>Get greeted</button>
-  <script>
-    let input = document.querySelector("input");
-    let display = document.querySelector(".display");
-    let button = document.querySelector("button");
-    button.addEventListener("click",()=>{
-      let userName = input.value;
-      display.textContent = `Hello ${userName}`;
-    })
-  </script>
-</body>
-</html> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centered Container with Children</title>
+    <style>
+      /* General reset for margin and padding */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Centering the container */
+      body,
+      html {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+      }
+
+      /* The container's styles */
+      .container {
+        display: flex;
+        flex-direction: column; /* Stack the children vertically */
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 200px;
+        background-color: lightblue; /* Light blue background */
+        border: 2px solid #333;
+        border-radius: 10px;
+      }
+
+      /* Child 1 styles */
+      .child1 {
+        width: 80%;
+        height: 40%;
+        background-color: #ff6347; /* Tomato color */
+        margin: 10px 0;
+        border-radius: 8px;
+      }
+
+      /* Child 2 styles */
+      .child2 {
+        width: 80%;
+        height: 40%;
+        background-color: #32cd32; /* Lime green color */
+        margin: 10px 0;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="child1">
+        <div class="child2"></div>
+      </div>
+    </div>
+    <script>
+      let child1 = document.querySelector(".child1");
+      let child2 = document.querySelector(".child2");
+      let container = document.querySelector(".container");
+
+      container.addEventListener("click", () => {
+        event.stopPropagation()
+        console.log("Container clicked..");
+      });
+      child1.addEventListener("click", () => {
+        event.stopPropagation()
+        console.log("child1 clicked..");
+      });
+      child2.addEventListener("click", () => {
+        event.stopPropagation()
+        console.log("child2 clicked..");
+      });
+    </script>
+  </body>
+</html>

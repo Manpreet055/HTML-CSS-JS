@@ -36,7 +36,7 @@ JavaScript Roadmap
 ✅ Modules (import/export)
 ✅ let & const (Why avoid var?)
 ✅ this keyword in different contexts
-✅ Classes & OOP in JS
+✅ Classes & OOP in JS 
 
 
 ---
