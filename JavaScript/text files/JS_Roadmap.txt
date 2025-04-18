@@ -1,51 +1,38 @@
-Ultimate JavaScript Roadmap before React.js
+JavaScript Roadmap
 
-📌 Phase 1: JavaScript Fundamentals 
+📌 Phase 1: JavaScript Fundamentals      (DONE ✅ )
 
-👉 Goal: Learn the basics and syntax
-✅ Variables (let, const, var)
+✅ Variables (let, const, var) 			
 ✅ Data Types (string, number, boolean, null, undefined, symbol)
 ✅ Operators (+ - * / %, comparison, logical)
 ✅ Conditionals (if-else, switch)
 ✅ Loops (for, while, do-while, forEach)
 ✅ Functions (normal, arrow functions, default parameters)
 
-
 ---
 
-📌 Phase 2: Arrays & Objects
+📌 Phase 2: Arrays, Objects & Functions 	(DONE ✅ )
 
 👉 Goal: Work with structured data
 ✅ Arrays: Methods (push, pop, shift, unshift, map, filter, reduce, find, some, every, sort, reverse)
 ✅ Objects: Properties, methods, Object.keys(), Object.values(), Object.entries()
-✅ Destructuring (Array & Object)
-✅ Spread & Rest Operators (...)
-✅ JSON (Convert objects to JSON & vice versa) // no need for now
-
-
----
-
-📌 Phase 3: Functions, Callbacks & Higher-Order Functions
-
-👉 Goal: Master function-based programming
 ✅ Function expressions & arrow functions
 ✅ Callbacks (How functions can be passed as arguments)
 ✅ Higher-order functions (map, filter, reduce)
 ✅ Closures (Understanding lexical scope)
 ✅ IIFE (Immediately Invoked Function Expressions)
 
-
 ---
 
-📌 Phase 4: ES6+ Modern JavaScript 
+📌 Phase 3: ES6+ Modern JavaScript  	(DONE ✅ )
 
 👉 Goal: Learn modern syntax for clean & efficient JS
 ✅ Template literals
-✅ Destructuring (Revisit)
+✅ Destructuring 
+✅ Spread & Rest Operators (...)
 ✅ Default parameters
 ✅ Optional chaining 
 ✅ Nullish coalescing
-✅ rest & spread Operators
 ✅ Modules (import/export)
 ✅ let & const (Why avoid var?)
 ✅ this keyword in different contexts
@@ -54,59 +41,220 @@ Ultimate JavaScript Roadmap before React.js
 
 ---
 
-📌 Phase 5: DOM Manipulation 
+📌 Phase 4: DOM Manipulation  & Events
 
-👉 Goal: Interact with web pages using JS
-✅ document.querySelector(), getElementById(), getElementsByClassName()
-✅ Changing text, attributes, and styles dynamically
-✅ Event listeners (click, input, keydown, scroll)
-✅ Creating & Removing elements (appendChild, removeChild, innerHTML, innerText)
-✅ Traversing the DOM (parentNode, children, nextSibling, previousSibling)
 
+1. Core DOM Concepts  	(DONE ✅ )
+
+What is the DOM? (Document Object Model)
+
+Difference between DOM, BOM, and Window Object
+
+document vs. window vs. navigator
+
+DOM Tree & Node Types (Element, Text, Comment, etc.)
+
+
+2. Selecting & Traversing Elements 	(DONE ✅ )
+
+getElementById, getElementsByClassName, getElementsByTagName
+
+querySelector, querySelectorAll (Static vs Live Collections)
+
+parentElement, children, firstChild, lastChild, nextElementSibling
+
+matches(), closest(), contains()
+
+
+3. Modifying the DOM		(DONE ✅ )
+
+innerText vs. textContent vs. innerHTML
+
+setAttribute, getAttribute, removeAttribute
+
+style manipulation (element.style.property)
+
+classList.add(), remove(), toggle(), contains()
+
+Creating & inserting elements (createElement, appendChild, prepend, insertAdjacentHTML)
+
+Removing elements (removeChild, remove())
+
+Cloning elements (cloneNode(true/false))
+
+
+4. Event Handling in JavaScript 	(DONE ✅ )
+
+addEventListener() & removeEventListener()
+
+Event Object (event.target, event.currentTarget, event.preventDefault)
+
+Common Events:
+
+Mouse Events (click, dblclick, mousedown, mouseup, mousemove, mouseenter, mouseleave)
+
+Keyboard Events (keydown, keyup, keypress, input, change)
+
+Form Events (submit, reset, focus, blur)
+
+Clipboard Events (copy, cut, paste)
+
+
+5. Event Delegation 	(DONE ✅ )
+
+Capturing vs. Bubbling (event.stopPropagation())
+
+once option in event listeners
+preventDefault()
+
+
+5. Storing & Handling User Data  		(DONE ✅ )
+
+localStorage vs. sessionStorage (setItem, getItem, removeItem)
+
+Storing arrays & objects using JSON.stringify() and JSON.parse()
+
+FormData for handling form inputs
+
+6. Observers & Performance Optimization  (Pending)
+
+MutationObserver (detect real-time changes in the DOM)
+
+IntersectionObserver (detect if an element is visible)
+
+ResizeObserver (track element size changes)
+
+Performance tips:
+
+Debouncing & Throttling (optimize frequent events like scrolling)
+
+requestAnimationFrame() for smooth animations
+
+Using documentFragment to batch multiple DOM updates
 
 ---
 
 📌 Phase 6: Asynchronous JavaScript
 
-👉 Goal: Handle real-world async tasks like API calls
-✅ Callbacks & Callback Hell
-✅ Promises (.then(), .catch(), .finally())
-✅ async/await (Modern way to handle async tasks)
-✅ Fetch API (fetch(), axios())
-✅ Error handling in async functions (try-catch)
+1. Understanding Callbacks (Basic Level)  (DONE ✅ )
+
+✅ What is a Callback Function?
+✅ Writing Simple Callback Functions
+✅ Synchronous vs Asynchronous Code
+✅ Callback Hell & Its Problems
 
 
 ---
 
-📌 Phase 7: JavaScript in the Browser 
+2. Introduction to Promises (Intermediate Level)  (DONE ✅ )
 
-👉 Goal: Learn browser-specific APIs
-✅ LocalStorage, SessionStorage, Cookies
-✅ Fetching & Displaying API Data in UI
-✅ Event delegation (Handling multiple dynamic events efficiently)
-✅ Debouncing & Throttling (Performance optimization in UI)
+✅ What is a Promise?
+✅ Promise States: Pending, Fulfilled, Rejected
+✅ Creating & Using Promises (new Promise())
+✅ .then() and .catch() for Handling Promises
+✅ .finally() Method
 
+
+---
+
+3. Advanced Promises (Intermediate to Advanced Level)  (DONE ✅ )
+
+✅ Chaining Multiple Promises (then chaining)
+✅ Handling Errors in Promise Chains
+✅ Promise.all() – Running Multiple Promises in Parallel
+✅ Promise.allSettled() – Waiting for All Promises (Even If Some Fail)
+✅ Promise.race() – First Resolved or Rejected Promise Wins
+✅ Promise.any() – First Resolved Promise Wins
+✅ Converting Callbacks to Promises (Promisification)
+
+
+---
+
+4. Introduction to Async/Await (Advanced Level)  (DONE ✅ )
+
+✅ What is async and await?
+✅ Writing Your First async Function
+✅ How await Works with Promises
+✅ Error Handling in Async/Await (try...catch)
+
+
+---
+
+5. Advanced Async/Await Concepts (Master Level) (DONE ✅ )
+
+✅ Chaining Async Functions (await inside loops)
+✅ Sequential vs Parallel Execution in Async/Await 
+✅ Using Promise.all() with async/await (Parallel Execution)
+✅ Using Promise.allSettled(), Promise.race(), and Promise.any() in Async/Await
+✅ Handling Timeouts & Delays (setTimeout with Promises)
+✅ Debugging Async Code (Common Mistakes & Performance Issues)
+
+
+---
+
+6. Real-World Applications of Async/Await
+
+✅ Fetching Data from API (fetch() with Async/Await) (DONE ✅ )
+✅ Handling Multiple API Requests at Once 	(DONE ✅ )
+✅ Using async/await in Loops (map, forEach, for...of)
+✅ Graceful Error Handling (Retry Mechanism, Fallback Data) 	(Pending)
+✅ Cancelling Async Operations (AbortController) (Pending)
+
+---
+
+7. Advanced Concepts in Asynchronous Programming (Pending)
+
+✅ Microtasks vs Macrotasks (Event Loop)
+   - Learn how JavaScript handles asynchronous tasks using the event loop.
+   - Understand the difference between microtasks (e.g., Promises) and macrotasks (e.g., setTimeout).
+
+✅ Async Generators
+   - Learn how to use async generators to handle streams of asynchronous data.
+   - Useful for processing large datasets or real-time data.
+
+✅ Web Workers
+   - Learn how to use Web Workers to run JavaScript code in the background without blocking the main thread.
+   - Useful for handling CPU-intensive tasks in web applications.
+
+✅ Streams and Async Iteration
+   - Learn how to work with streams in Node.js or the browser.
+   - Useful for processing large files or real-time data incrementally.
 
 ---
 
 📌 Phase 8: JavaScript Projects 
 
-👉 Goal: Apply everything you’ve learned
 🔥 Mini Projects:
 
 Calculator
 
 To-Do List
 
+ Random User Generator – Fetch & Display User Profiles
 
 Tic-Tac-Toe
+
+Counter App (Increase, decrease, reset buttons)
+
+Theme Switcher (Dark/Light mode with localStorage)
+
+Background Task Manager – Use Web Workers for Heavy Computations 
+
+File Processor – Process Large Files Using Streams
+
+Live Search Filter (Filter list items as user types)
+
+Form Validation (Check if input fields are empty or invalid)
+
+🔥 Major Projects:
+
+ E-Commerce Product Fetcher – Display Products from an API
+
+ Movie Search App – Fetch & Display Movie Data
 
 Weather App (using API)
 
 Quiz App
-
-
-🔥 Major Projects:
 
 Notes App (with LocalStorage)
 
@@ -114,25 +262,13 @@ Expense Tracker
 
 Real-time Chat App (using WebSockets)
 
+  
 
 
----
-
-📌 Phase 9 (Optional) : Data Structures & Algorithms 
-
-👉 Goal: Improve logic for better problem-solving
-✅ Strings, Arrays, Objects, Sets, Maps
-✅ Recursion
-✅ Searching & Sorting
-✅ Basic Dynamic Programming
-✅ Solving 50+ problems on LeetCode/CodeWars
 
 
----
 
-📌 Phase 10: React.js (Now You’re Ready!)
 
-Once you’ve mastered JavaScript and built projects, React will be much easier because you’ll already understand:
-✅ Functions & ES6+ (React uses modern JS)
-✅ DOM Manipulation (React automates this with Virtual DOM)
-✅ Async JS (React deals with APIs & data fetching)
+
+
+

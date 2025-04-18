@@ -172,3 +172,88 @@ Etc. and even learn alot with this like localStorage only accept string etc.. --
 </html>
  
 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pagination</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .navele {
+        height: 40px;
+        width: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Post Data</h2>
+    <div class="postContainer"></div>
+    <div class="navopt">
+      <button id="prevbutton" class="navele">Prev</button>
+      <span id="pagenumber" class="navele"></span>
+      <button id="nextbutton" class="navele">Next</button>
+    </div>
+    <script>
+      let postContainer = document.querySelector(".postContainer");
+      let prevbutton = document.querySelector("#prevbutton");
+      let nextbutton = document.querySelector("#nextbutton");
+      let pagenumber = document.querySelector("#pagenumber");
+      let posts = [];
+      let currentpage = 1;
+      let postsperpage = 5;
+      pagenumber.textContent = `page no ${currentpage}`;
+
+      
+      async function fetchData() {
+        try {
+          let response = await fetch(
+            "https://jsonplaceholder.typicode.com/posts"
+          );
+          if (!response.ok) {
+            throw new Error("Something went wrong..");
+          }
+          posts = await response.json();
+          renderPosts();
+          console.log(posts);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      function renderPosts() {
+        postContainer.innerHTML = "";
+        let start = (currentpage - 1) * postsperpage;
+        let end = start + postsperpage;
+        let paginatedposts = posts.slice(start, end);
+
+        paginatedposts.forEach((post) => {
+          let div = document.createElement("div");
+          div.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p>`;
+          postContainer.appendChild(div);
+        });
+      }
+      prevbutton.addEventListener("click", () => {
+        if (currentpage > 1) {
+          currentpage--;
+          renderPosts();
+          pagenumber.textContent = `page no ${currentpage}`;
+        }
+      });
+      
+      nextbutton.addEventListener("click", () => {
+        if (currentpage * postsperpage < posts.length) {
+          currentpage++;
+          pagenumber.textContent = `page no ${currentpage}`;
+          renderPosts();
+        }
+      });
+      fetchData();
+      
+    </script>
+  </body>
+</html>
