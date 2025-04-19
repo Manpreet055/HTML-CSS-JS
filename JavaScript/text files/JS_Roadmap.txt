@@ -65,7 +65,14 @@ parentElement, children, firstChild, lastChild, nextElementSibling
 
 matches(), closest(), contains()
 
+function greet(name) {
+  console.log(name);
+}
 
+function name(name, callback) {
+  console.log()
+  callback(name);
+}
 3. Modifying the DOM		(DONE ✅ )
 
 innerText vs. textContent vs. innerHTML

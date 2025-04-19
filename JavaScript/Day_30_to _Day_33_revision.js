@@ -128,15 +128,33 @@
 // let arr2 = [...arr, 2, 3, 4];
 // console.log(arr2);
 
-let person = {
-  name: "Manpreet",
-  age: 22,
-  jobRole: "Frontend Developer",
-  show() {
-    console.log(this.age);
-  }
-}
-person.show();
+// let person = {
+//   name: "Manpreet",
+//   age: 22,
+//   jobRole: "Frontend Developer",
+//   show() {
+//     console.log(this.age);
+//   }
+// }
+// person.show();
 // console.log(person.name.city?.address ??"Not define");
 
 
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// // let newArr = arr.map((x) => x * 2);
+// // arr = arr.filter((x) => x % 2 === 0);
+// let sum = arr.reduce((x, y) => x + y, 0);
+// console.log(sum);
+
+// (function (name) {
+//   console.log(`Hello ${name}`);
+// })("Manpreet"); //IIFE
+
+function doSomethingLater(callback) {
+  callback();
+}
+function greet() {
+  console.log("Hello ji, Good Morning..")
+}
+
+doSomethingLater(greet)
