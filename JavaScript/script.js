@@ -1,24 +1,4 @@
-let form = document.querySelector("form");
-        async function postData(formName) {
-          let formData = new FormData(formName);
-          let uploadData = await fetch(
-            "https://jsonplaceholder.typicode.com/posts",
-            {
-              method: "POST",
-              body: formData,
-            }
-          );
-          let uploadedData = await uploadData.json();
-          return uploadedData;
+let numbers = [12, 87, 45, 33, 9, 64, 28, 71, 56, 19];
 
-        }
-        async function getuploadedData(postData){
-          let response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postData.id}`);
-          let getData = await response.json();
-          console.log(getData);
-        }
-        form.addEventListener("submit",async (event) => {
-          event.preventDefault();
-            let uploadedData = await postData(form);
-            getuploadedData(uploadedData);
-        });
+numbers = numbers.sort((a, b) => b - a);
+console.log(numbers.shift());

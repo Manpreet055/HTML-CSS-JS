@@ -1,0 +1,10 @@
+@use "variables" as *;
+@use "component" as *;
+
+body {
+    background-color: $color;
+    height: $height;
+    width: $width;
+    @include centerDiv();
+    @include size(40px);
+}

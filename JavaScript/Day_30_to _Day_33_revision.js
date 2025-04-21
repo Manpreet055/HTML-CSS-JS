@@ -150,11 +150,57 @@
 //   console.log(`Hello ${name}`);
 // })("Manpreet"); //IIFE
 
-function doSomethingLater(callback) {
-  callback();
-}
-function greet() {
-  console.log("Hello ji, Good Morning..")
+// function doSomethingLater(callback) {
+//   callback();
+// }
+// function greet() {
+//   console.log("Hello ji, Good Morning..")
+// }
+
+// doSomethingLater(greet)
+
+// let response = fetch("https://jsonplaceholder.typicode.com/users");
+
+// response.then((result) => {
+//   if (!result.ok) throw new Error('Something went wrong..');
+//   return result.json()
+// }).then((data) => {
+//   console.log(data);
+// }).catch((error) => {
+//   console.log("Error : ", error.message);
+// })
+let posts = [];
+
+let fetchUserData = async (id) => {
+  try {
+    console.log("Loading...");
+    let response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+    if (!response.ok) throw new Error("Something went wrong..");
+    posts = await response.json();
+    console.log(posts);
+  } catch (error) {
+    console.log("Error :", error.message);
+  }
 }
 
-doSomethingLater(greet)
+
+let fetchPosts = async (id) => {
+  try {
+    let response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    if (!response.ok) throw new Error("Something went wrong...");
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log("Error :", error.message);
+  }
+}
+Promise.allSettled([fetchPosts(5), fetchUserData(5)])
+  .then((results) => {
+    results.forEach((result) => {
+      if (result.status === 'fulfilled') {
+        console.log(result.value);
+      } else {
+        console.log(result.reason);
+      }
+    })
+  })

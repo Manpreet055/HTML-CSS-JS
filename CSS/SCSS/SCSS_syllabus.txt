@@ -1,0 +1,108 @@
+✅ Complete SCSS (SASS) Syllabus
+1. Introduction
+What is SASS/SCSS
+
+SASS vs SCSS syntax
+
+Installing & compiling SCSS
+
+2. Basics
+Nesting
+
+Variables
+
+Comments (Single-line and Multi-line)
+
+Data Types (Strings, Numbers, Colors, Booleans, Null)
+
+Interpolation (#{$variable})
+
+3. Partials & Importing
+Partials (_file.scss)
+
+@import (legacy)
+
+@use and @forward (modern way)
+
+4. Mixins
+Creating mixins
+
+Using @include
+
+Mixins with arguments
+
+Default values
+
+5. Functions
+Built-in functions (color, string, list, etc.)
+
+Custom functions
+
+@return
+
+6. Operators
+Math (+, -, *, /, %)
+
+Comparison (==, !=, >, <, >=, <=)
+
+Logical (and, or, not)
+
+7. Inheritance
+@extend
+
+Placeholder selectors (%placeholder)
+
+8. Control Directives
+@if, @else if, @else
+
+@for
+
+@each
+
+@while
+
+9. Maps & Lists
+Declaring maps and lists
+
+Accessing values
+
+map-get, map-merge
+
+nth(), length(), etc.
+
+10. Modules (Modern SASS)
+@use
+
+@forward
+
+Namespaces
+
+Config with with keyword
+
+11. Advanced Patterns
+Responsive mixins
+
+Utility classes with loops
+
+Theming with maps
+
+Function composition
+
+BEM structure with SCSS
+
+12. Project Architecture
+7-1 folder structure
+
+abstracts
+
+base
+
+components
+
+layout
+
+pages
+
+themes
+
+vendors
