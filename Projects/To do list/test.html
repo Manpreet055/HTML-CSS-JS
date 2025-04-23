@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <button class="add">Add</button>
+    </div>
+    <script>
+      let container = document.querySelector(".container");
+      let addButton = document.querySelector(".add");
+      let storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      storedTasks.forEach((task) => {
+        let div = document.createElement("div");
+        div.innerHTML = task;
+        container.insertAdjacentElement("beforeend", div.firstChild);
+      });
+      addButton.addEventListener("click", () => {
+        let newDiv = document.createElement("div");
+        newDiv.textContent = " I am just born ";
+        container.insertAdjacentElement("beforeend", newDiv);
+        storedTasks.push(newDiv.outerHTML);
+        localStorage.setItem("tasks", JSON.stringify(storedTasks));
+      });
+    </script>
+  </body>
+</html>
