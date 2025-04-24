@@ -1,15 +1,34 @@
-let input = document.querySelector(".inputField");
+let inputData = document.querySelector(".inputField");
+let addTasks = document.querySelector(".addTask");
 let tasks = document.querySelector(".tasks");
-let addTask = document.querySelector(".addTask");
-let storedTasks = JSON.parse(localStorage.getItem("alltasks")) || [];
-storedTasks.forEach((task) => {
+let allTasks = JSON.parse(localStorage.getItem("alltasks")) || [];
+allTasks.forEach((task) => {
   tasks.insertAdjacentHTML("beforeend", task);
 });
-addTask.addEventListener("click", () => {
+
+addTasks.addEventListener("click", () => {
+  if (inputData.value === "") return;
   let newDiv = document.createElement("div");
-  newDiv.textContent = input.value;
   newDiv.className = "newDiv";
-  tasks.insertAdjacentElement("beforeend", newDiv);
-  storedTasks.push(newDiv.outerHTML);
-  localStorage.setItem("alltasks", JSON.stringify(storedTasks));
+  let checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.className = "checkbox";
+  let newbutton = document.createElement("button");
+  newbutton.textContent = "Delete";
+  newbutton.className = "deleteTask";
+  newDiv.appendChild(checkbox);
+  newDiv.append(inputData.value);
+  newDiv.appendChild(newbutton);
+  tasks.appendChild(newDiv);
+  allTasks.push(newDiv.outerHTML);
+
+  localStorage.setItem("alltasks", JSON.stringify(allTasks));
+});
+
+tasks.addEventListener("click", (e) => {
+  if (e.target.classList.contains("deleteTask")) {
+    let taskDiv = e.target.closest(".newDiv");
+    taskDiv.remove();
+    localStorage.setItem("alltasks", JSON.stringify(allTasks));
+  }
 });
