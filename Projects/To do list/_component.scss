@@ -1,15 +1,33 @@
-@mixin centerDiv(){
+@use "variables" as *;
+@mixin centerDiv() {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
-@mixin contentCenter(){
+@mixin contentCenter() {
     display: grid;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
 }
+@mixin buttonStyle() {
+    width: 80%;
+    height: 100%;
+    justify-self: center;
+    border-radius: 10px;
+    border: none;
+    background-color: $theme-color;
+    color: white;
+    &:hover {
+        background-color: $theme-color-hover;
+        cursor: pointer;
+    }
+}
 
+@mixin heightWidth($height,$width){
+    height: $height;
+    width: $width;
+}

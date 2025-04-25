@@ -9,8 +9,7 @@ body {
 .container {
     background-color: $bg-color;
     @include centerDiv();
-    height: 60%;
-    width: 70%;
+    @include heightWidth(60%, 70%);
     @include contentCenter();
     border: 1px solid lightgray;
     border-radius: 10px;
@@ -26,8 +25,7 @@ body {
     font-size: 30px;
 }
 .inputField {
-    height: 40%;
-    width: 80%;
+    @include heightWidth(40%, 80%);
     padding-left: 20px;
     border: $border;
     border-radius: 8px;
@@ -39,8 +37,7 @@ body {
     }
 }
 .addTask {
-    width: 60%;
-    height: 40%;
+    @include heightWidth(40%, 60%);
     justify-self: center;
     border-radius: 8px;
     border: $border;
@@ -64,36 +61,32 @@ body {
 }
 
 .newDiv {
-border-radius: 10px;
-border: $border;
-height: 50px;
-width: 80%;
-text-align:start;
-align-content: center;
-padding-left: 15px;
-align-items: center;
-white-space:nowrap;
-margin-bottom: 20px;
-display: grid;
-grid-template-columns: 10% 70% 20%;
-font-size: 18px;
-}
-.checkbox{
-    background-color: #017ebc;
-    border-radius: 20px;
-    margin-right: 20px ;
+    border-radius: 10px;
+    border: $border;
+    @include heightWidth(50px, 80%);
+    text-align: start;
+    align-content: center;
+    padding-left: 15px;
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 10% 50% 20% 20%;
+    font-size: 18px;
+    overflow-x: auto;
 }
 
-.deleteTask{
-    width: 80%;
-    height: 100%;
-    justify-self: center;
-    border-radius: 10px;
-    border: none;
-    background-color:$theme-color ;
-    color: white ;
-    &:hover{
-        background-color: $theme-color-hover;
-        cursor: pointer;
-    }
-    }
+.textData {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.textData::-webkit-scrollbar {
+    display: none;
+}
+.editTask {
+    @include buttonStyle();
+}
+.deleteTask {
+    @include buttonStyle();
+}

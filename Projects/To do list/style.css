@@ -45,8 +45,8 @@ body {
 }
 
 .addTask {
-  width: 60%;
   height: 40%;
+  width: 60%;
   justify-self: center;
   border-radius: 8px;
   border: 1px solid lightgray;
@@ -81,14 +81,33 @@ body {
   white-space: nowrap;
   margin-bottom: 20px;
   display: grid;
-  grid-template-columns: 10% 70% 20%;
+  grid-template-columns: 10% 50% 20% 20%;
   font-size: 18px;
+  overflow-x: auto;
 }
 
-.checkbox {
+.textData {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.textData::-webkit-scrollbar {
+  display: none;
+}
+
+.editTask {
+  width: 80%;
+  height: 100%;
+  justify-self: center;
+  border-radius: 10px;
+  border: none;
   background-color: #017ebc;
-  border-radius: 20px;
-  margin-right: 20px;
+  color: white;
+}
+.editTask:hover {
+  background-color: #036494;
+  cursor: pointer;
 }
 
 .deleteTask {
