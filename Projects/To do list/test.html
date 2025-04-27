@@ -3,16 +3,395 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>To do list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        list-style: none;
+        font-family: poppins;
+      }
+
+      body {
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        background-color: #f0f0f0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 95%;
+        width: 89%;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        grid-template-columns: 70% 1fr;
+        grid-template-rows: 80px 100px 40px 1fr;
+        padding: 15px;
+      }
+
+      .heading {
+        grid-column: 1/4;
+        justify-self: center;
+        align-self: center;
+        font-size: 30px;
+      }
+
+      .inputField {
+        height: 40%;
+        width: 80%;
+        padding-left: 20px;
+        border: 1px solid lightgray;
+        border-radius: 8px;
+        background-color: #f0f0f0;
+        margin-left: 20px;
+        font-size: 1rem;
+        border: none;
+        border-bottom: 1px solid lightgray;
+        border-radius: 0;
+      }
+      .inputField:focus {
+        outline: none;
+      }
+
+      .addTask {
+        height: 40%;
+        width: 60%;
+        justify-self: center;
+        border-radius: 8px;
+        border: none;
+        background-color: #017ebc;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .addTask:hover {
+        background-color: #036494;
+      }
+      .addTask:focus {
+        outline: none;
+      }
+
+      .tasks {
+        height: 95%;
+        grid-column: 1/3;
+        justify-items: center;
+        overflow: auto;
+        margin-top: 15px;
+      }
+
+      .newTask {
+        border-radius: 10px;
+        border: 1px solid lightgray;
+        height: 50px;
+        width: 80%;
+        text-align: start;
+        align-content: center;
+        padding-left: 15px;
+        align-items: center;
+        white-space: nowrap;
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 10% 1fr 65px 65px;
+        font-size: 18px;
+        overflow-x: auto;
+      }
+
+      .checkbox {
+        border-radius: 50%;
+      }
+
+      .textData {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .textData::-webkit-scrollbar {
+        display: none;
+      }
+
+      .editTask {
+        width: 50px;
+        height: 100%;
+        justify-self: center;
+        border-radius: 10px;
+        border: none;
+        background-color: #017ebc;
+        color: white;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .editTask:hover {
+        background-color: #036494;
+        cursor: pointer;
+      }
+
+      .deleteTask {
+        width: 50px;
+        height: 100%;
+        justify-self: center;
+        border-radius: 10px;
+        border: none;
+        background-color: #017ebc;
+        color: white;
+        text-align: center;
+        font-size: 1rem;
+        margin-right: 5px;
+      }
+      .deleteTask:hover {
+        background-color: #036494;
+        cursor: pointer;
+      }
+
+      .darkModeButton {
+        height: 80%;
+        width: 80%;
+        font-size: 75%;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        align-self: center;
+      }
+
+      .checkBox {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        accent-color: #017ebc; /* Green when checked */
+        border: 2px solid #333; /* Border around checkbox */
+        border-radius: 50%; /* Rounded corners (optional) */
+        margin-right: 10px;
+      }
+
+      .darkMode {
+        background-color: #373c3f;
+      }
+      .darkMode .container {
+        background-color: #373c3f;
+      }
+      .darkMode .heading {
+        color: white;
+      }
+      .darkMode .inputField {
+        background-color: #373c3f;
+        color: white;
+      }
+      .darkMode .inputField::-moz-placeholder {
+        color: white;
+      }
+      .darkMode .inputField::placeholder {
+        color: white;
+      }
+      .darkMode .darkModeButton {
+        background-color: #373c3f;
+        color: white;
+      }
+      .darkMode .textData {
+        color: white;
+      }
+      .darkMode .sortFilter {
+        background-color: #373c3f;
+        color: white;
+      }
+
+      .navIcons {
+        height: 100%;
+        width: 100%;
+        grid-column: 1/4;
+        display: grid;
+        grid-template-columns: 28% repeat(3, 1fr);
+        gap: 5px;
+      }
+
+      .sortFilter {
+        background-color: #f0f0f0;
+        width: 80%;
+        align-self: center;
+        justify-self: center;
+        border: none;
+        outline: none;
+        text-align: center;
+        font-size: 15px;
+      }
+      .sortFilter:focus {
+        border: none;
+        outline: none;
+      } /*# sourceMappingURL=style.css.map */
+    </style>
   </head>
   <body>
-    <input type="checkbox" />
+    <div class="container">
+      <h2 class="heading">To-Do App</h2>
+      <input
+        class="inputField"
+        type="text"
+        placeholder="Add a new Task"
+        required
+      />
+      <button class="addTask">+ Add</button>
+      <nav class="navIcons">
+        <div></div>
+        <select class="sortFilter" name="Sorting" id="sort">
+          <option value="ascending">A-Z</option>
+          <option value="descending">Z-A</option>
+          <option value="newest">Newest</option>
+          <option value="Oldest">Oldest</option>
+        </select>
+        <select class="sortFilter" name="Filter" id="filter">
+          Filter
+          <option value="ShowAllTasks">All</option>
+          <option value="pending">pending</option>
+          <option value="completed">Done</option>
+        </select>
+        <button class="darkModeButton">Dark/Light</button>
+      </nav>
+      <div class="tasks">
+        <div class="taskContainer"></div>
+      </div>
+    </div>
     <script>
-      let checkbox = document.querySelector("input");
-      checkbox.checked = localStorage.getItem("checkboxState") === "true";
+      //Selecting elements
+      let inputData = document.querySelector(".inputField");
+      let addTasks = document.querySelector(".addTask");
+      let tasks = document.querySelector(".tasks");
+      let darkMode = document.querySelector(".darkModeButton");
 
-      checkbox.addEventListener("change", () => {
-        localStorage.setItem("checkboxState", checkbox.checked);
+      //Retrieving Data from LocalStorage
+      let storedTasks = JSON.parse(localStorage.getItem("storedTasks")) || [];
+
+      // Function to create task element after retriving the data from localStorage
+      function createTaskElement(taskObj) {
+        let newTask = document.createElement("div"); //Div element holding all the data about tasks
+        newTask.className = "newTask";
+
+        let checkbox = document.createElement("input"); // creating Checkbox dynamically
+        checkbox.type = "checkbox";
+        checkbox.className = "checkBox";
+        checkbox.checked = taskObj.isDone; // loading checkboxState if true checkbox will true otherwise unchecked
+
+        let textData = document.createElement("span"); // creating span element to store task's text.
+        textData.className = "textData";
+        textData.textContent = taskObj.taskContent; //loading Task's text data into the span elemnt
+
+        let editTask = document.createElement("div");
+        editTask.className = "editTask";
+        editTask.innerHTML = `<i class="fas fa-pen"></i>`;
+
+        let deleteTask = document.createElement("div");
+        deleteTask.className = "deleteTask";
+        deleteTask.innerHTML = `<i class="fas fa-trash"></i>`;
+
+        newTask.appendChild(checkbox);
+        newTask.appendChild(textData);
+        newTask.appendChild(editTask);
+        newTask.appendChild(deleteTask);
+        tasks.appendChild(newTask);
+
+        // Update localStorage when checkbox is clicked
+        checkbox.addEventListener("change", () => {
+          let targetTask = storedTasks.find(
+            (task) => task.taskContent === textData.textContent
+          );
+          if (targetTask) {
+            targetTask.isDone = checkbox.checked;
+            localStorage.setItem("storedTasks", JSON.stringify(storedTasks));
+          }
+        });
+      }
+
+      // Load tasks from localStorage
+      storedTasks.forEach((task) => {
+        createTaskElement(task);
+      });
+
+      // Add task logic
+      function addTask() {
+        if (inputData.value.trim() === "") {
+          alert("Empty Task");
+          return;
+        }
+
+        let duplicateCheck = storedTasks.some(
+          (task) => task.taskContent.trim() === inputData.value.trim()
+        );
+        if (duplicateCheck) {
+          alert("Task already exists");
+          inputData.value = "";
+          return;
+        }
+
+        //Storing Task data into an object
+        let taskObj = {
+          isDone: false,
+          taskContent: inputData.value.trim(),
+        };
+        storedTasks.push(taskObj);
+        localStorage.setItem("storedTasks", JSON.stringify(storedTasks));
+
+        createTaskElement(taskObj);
+
+        inputData.value = "";
+      }
+
+      // Event listeners for adding task
+      addTasks.addEventListener("click", addTask);
+      inputData.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          addTask();
+        }
+      });
+
+      // Delete and edit task logic
+      tasks.addEventListener("click", (event) => {
+        if (event.target.closest(".deleteTask")) {
+          let removeTask = event.target.closest(".newTask");
+          let taskText = removeTask.querySelector(".textData").textContent;
+          removeTask.remove();
+          storedTasks = storedTasks.filter(
+            (task) => task.taskContent !== taskText
+          );
+          localStorage.setItem("storedTasks", JSON.stringify(storedTasks));
+        }
+
+        if (event.target.closest(".editTask")) {
+          if (!confirm("Are you sure ?")) return;
+          let clickTask = event.target.closest(".newTask");
+          let textData = clickTask.querySelector(".textData");
+          inputData.value = textData.textContent;
+
+          storedTasks = storedTasks.filter(
+            (task) => task.taskContent !== textData.textContent
+          );
+          localStorage.setItem("storedTasks", JSON.stringify(storedTasks));
+          clickTask.remove();
+        }
+      });
+
+      // Dark Mode logic
+      let darkModeEnabled =
+        localStorage.getItem("darkModePrefrence") === "true";
+      if (darkModeEnabled) {
+        document.body.classList.add("darkMode");
+      }
+
+      darkMode.addEventListener("click", () => {
+        document.body.classList.toggle("darkMode");
+        localStorage.setItem(
+          "darkModePrefrence",
+          document.body.classList.contains("darkMode")
+        );
       });
     </script>
   </body>

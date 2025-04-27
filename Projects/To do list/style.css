@@ -1,6 +1,10 @@
+* {
+  list-style: none;
+  font-family: poppins;
+}
+
 body {
   background-color: #f0f0f0;
-  font-family: poppins;
 }
 
 .container {
@@ -9,22 +13,20 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 60%;
-  width: 70%;
+  height: 95%;
+  width: 89%;
   display: grid;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  border: 1px solid lightgray;
-  border-radius: 10px;
   grid-template-columns: 70% 1fr;
-  grid-template-rows: 80px 100px 1fr;
+  grid-template-rows: 80px 100px 40px 1fr;
   padding: 15px;
 }
 
 .heading {
-  grid-column: 1/3;
+  grid-column: 1/4;
   justify-self: center;
   align-self: center;
   font-size: 30px;
@@ -36,9 +38,12 @@ body {
   padding-left: 20px;
   border: 1px solid lightgray;
   border-radius: 8px;
-  background-color: #f8f8f8;
+  background-color: #f0f0f0;
   margin-left: 20px;
   font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  border-radius: 0;
 }
 .inputField:focus {
   outline: none;
@@ -49,7 +54,7 @@ body {
   width: 60%;
   justify-self: center;
   border-radius: 8px;
-  border: 1px solid lightgray;
+  border: none;
   background-color: #017ebc;
   color: white;
   font-size: 1rem;
@@ -63,13 +68,14 @@ body {
 }
 
 .tasks {
-  height: 100%;
+  height: 95%;
   grid-column: 1/3;
   justify-items: center;
   overflow: auto;
+  margin-top: 15px;
 }
 
-.newDiv {
+.newTask {
   border-radius: 10px;
   border: 1px solid lightgray;
   height: 50px;
@@ -81,9 +87,13 @@ body {
   white-space: nowrap;
   margin-bottom: 20px;
   display: grid;
-  grid-template-columns: 10% 50% 20% 20%;
+  grid-template-columns: 10% 1fr 65px 65px;
   font-size: 18px;
   overflow-x: auto;
+}
+
+.checkbox {
+  border-radius: 50%;
 }
 
 .textData {
@@ -97,13 +107,15 @@ body {
 }
 
 .editTask {
-  width: 80%;
+  width: 50px;
   height: 100%;
   justify-self: center;
   border-radius: 10px;
   border: none;
   background-color: #017ebc;
   color: white;
+  text-align: center;
+  font-size: 1rem;
 }
 .editTask:hover {
   background-color: #036494;
@@ -111,15 +123,92 @@ body {
 }
 
 .deleteTask {
-  width: 80%;
+  width: 50px;
   height: 100%;
   justify-self: center;
   border-radius: 10px;
   border: none;
   background-color: #017ebc;
   color: white;
+  text-align: center;
+  font-size: 1rem;
+  margin-right: 5px;
 }
 .deleteTask:hover {
   background-color: #036494;
   cursor: pointer;
+}
+
+.darkModeButton {
+  height: 80%;
+  width: 80%;
+  font-size: 75%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.checkBox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #017ebc; /* Green when checked */
+  border: 2px solid #333; /* Border around checkbox */
+  border-radius: 50%; /* Rounded corners (optional) */
+  margin-right: 10px;
+}
+
+.darkMode {
+  background-color: #373c3f;
+}
+.darkMode .container {
+  background-color: #373c3f;
+}
+.darkMode .heading {
+  color: white;
+}
+.darkMode .inputField {
+  background-color: #373c3f;
+  color: white;
+}
+.darkMode .inputField::-moz-placeholder {
+  color: white;
+}
+.darkMode .inputField::placeholder {
+  color: white;
+}
+.darkMode .darkModeButton {
+  background-color: #373c3f;
+  color: white;
+}
+.darkMode .textData {
+  color: white;
+}
+.darkMode .sortFilter {
+  background-color: #373c3f;
+  color: white;
+}
+
+.navIcons {
+  height: 100%;
+  width: 100%;
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: 28% repeat(3, 1fr);
+  gap: 5px;
+}
+
+.sortFilter {
+  background-color: #f0f0f0;
+  width: 80%;
+  align-self: center;
+  justify-self: center;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 15px;
+}
+.sortFilter:focus {
+  border: none;
+  outline: none;
 }/*# sourceMappingURL=style.css.map */
