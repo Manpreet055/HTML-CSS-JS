@@ -1,0 +1,46 @@
+1. Minor Projects (small but mighty, warm-up your fingers)
+These should take like a few hours to a day max if you stay focused.
+
+
+#	Project Idea	Description
+1	Counter App	Increase, decrease, reset button.
+2	Tip Calculator	Enter bill, choose tip %, show total.
+3	Random Quote Generator	Button generates random quotes.
+4	Color Flipper	Click a button to change background color randomly.
+5	Accordion	Expand/collapse FAQ sections.
+6	Modal Popup	Click button to open/close modal.
+7	Form Validator	Basic form input validations (like email, password strength).
+8	Digital Clock	Live clock updating every second.
+9	To-do List (Basic)	Add/remove tasks, mark them complete.
+10	Image Slider	Auto/manual image slider with arrows.
+Goal: Get your brain quick with DOM, Events, Loops, Conditionals.
+
+2. Medium Projects (you're cooking now, these hit harder)
+These will take 2–5 days depending on complexity and polish.
+
+
+#	Project Idea	Description
+1	Weather App (API-based)	Fetch live weather data with OpenWeatherMap API.
+2	Recipe Finder	Search for recipes using an API (like TheMealDB).
+3	Quiz App	Multiple choice questions, scoring system, timer.
+4	Music Player	Play/pause music, next/prev track, show progress bar.
+5	Memory Game (Flip Cards)	Match 2 cards, score, and timer.
+6	Expense Tracker	Add income/expenses, calculate balance.
+7	Movie Search App	Search movies using OMDB API, show posters and info.
+8	Countdown Timer	Set a date, show days/hours/minutes left.
+9	GitHub User Finder	Search GitHub users, show profile and repos.
+10	Drawing App	Canvas-based simple paint app.
+Goal: Work with APIs, more complex DOM trees, localStorage, timers, event bubbling, etc.
+
+3. Major Projects (final boss fights)
+These will take 1-2+ weeks to polish properly if you go beast mode.
+This is where you build real resume pieces — no more "cute projects."
+
+
+#	Project Idea	Description
+1	Professional Portfolio Website (MANDATORY)	Your home on the internet. Multiple pages (Home, Projects, About, Contact), animations, responsiveness, smooth scroll, sticky nav, hero sections, testimonial section, contact form. Build it like you're applying to Google — no shortcuts.
+2	E-Commerce Product Store (Frontend Only)	Product cards grid, filters (category, price), single product page, cart functionality (add, remove, view), checkout page. Use localStorage to save cart data. No backend — fake it till you make it.
+3	Blogging Website	Create, display, and delete posts stored in localStorage. Show blog posts dynamically, beautiful typography, featured post banner.
+4	Job Board	Users can filter jobs by location/type (remote, part-time, etc.). Maybe later connect it to a fake API like jsonplaceholder if you wanna flex harder.
+Goal: Deep dive into responsive design, modular code, project architecture, user experience (UX), and make things look clean AF.
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <style>
+      * {
+        font-family: poppins;
+      }
+
+      body {
+        background-color: #e9edf2;
+      }
+
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        grid-template-rows: 20% 40% 20% 1fr;
+        grid-template-columns: 1fr;
+        height: 350px;
+        width: 400px;
+        border-radius: 15px;
+        background-color: white;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .container button {
+        height: 75%;
+        width: 75%;
+        border-radius: 10px;
+        border: none;
+        background-color: #014bf7ee;
+        color: white;
+        font-size: 17px;
+      }
+      .container button:hover {
+        background-color: #014bf7;
+      }
+      .quote {
+        height: 100%;
+        width: 90%;
+        text-align: center;
+        align-content: center;
+        font-size: medium;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Random Quote Generator</h3>
+      <div class="quote"></div>
+      <div class="author"></div>
+      <button class="">New Quote</button>
+    </div>
+    <script>
+      let quote = document.querySelector(".quote");
+      let author = document.querySelector(".author");
+      let button = document.querySelector("button");
+
+      button.addEventListener("click", async () => {
+        quote.textContent = "Loading...";
+        author.textContent = "Loading...";
+        let min = 0;
+        let max = 29;
+        let randomQuote = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        try {
+          let response = await fetch("https://dummyjson.com/quotes");
+          if (!response.ok) throw new Error("Something Went Wrong");
+          let fetchedData = await response.json();
+          let quoteAuthor = fetchedData.quotes[randomQuote];
+          quote.textContent = quoteAuthor.quote;
+          author.textContent = quoteAuthor.author;
+        } catch (err) {
+          console.log(err);
+          quote.textContent = err.message;
+          author.textContent = err.message;
+        }
+      });
+    </script>
+  </body>
+</html>

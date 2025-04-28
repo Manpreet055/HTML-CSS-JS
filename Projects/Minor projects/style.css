@@ -1,0 +1,44 @@
+* {
+    font-family: poppins;
+    font-weight: 500;
+  }
+  
+  body {
+    background-color: #e9edf2;
+  }
+  
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-rows: 20% 40% 20% 1fr;
+    grid-template-columns: 1fr;
+    height: 350px;
+    width: 400px;
+    border-radius: 15px;
+    background-color: white;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .container button{
+    height: 75%;
+    width: 75%;
+    border-radius: 10px;
+    border: none;
+    background-color: #014bf7ee;
+    color: white;
+    font-size: 17px;
+  }
+  .container button:hover{
+    background-color: #014bf7;
+  }
+  .quote{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    font-size: medium;
+  }
