@@ -1,5 +1,10 @@
 let longitude;
 let latitude;
+
+let primaryApiKey = "7272517a48db4727b09183643250205";
+const apiKey = "c1482848b4593d224d394f35ca73bdab";
+
+//Elements
 let cityName = document.querySelector(".cityName");
 let weatherCondition = document.querySelector(".condition");
 let humidity = document.querySelector(".humidity-unit");
@@ -8,20 +13,40 @@ let sunSet = document.querySelector(".sunSet");
 let windSpeed = document.querySelector("#windSpeed");
 let temperature = document.querySelector(".temperature");
 let pressure = document.querySelector("#pressure__unit");
-let groundLevel = document.querySelector("#groundLevel__unit");
 let feelsLike = document.querySelector("#feelslike__unit");
-let seaLevel = document.querySelector("#seaLevel__unit");
 let visibility = document.querySelector("#visibility__unit");
 let averageTemprature = document.querySelector("#avgTemp__unit");
+let airQualityelement = document.querySelector(".aqi");
+let uv = document.querySelector(".uv-unit");
+let aqiMeaning = {
+  1: "Good",
+  2: "Fair",
+  3: "Moderate",
+  4: "Poor",
+  5: "Very Poor",
+};
 
-cityName.textContent = "Locating..";
 navigator.geolocation.getCurrentPosition(
   (position) => {
     // Success callback
-    longitude = position.coords.longitude;
     latitude = position.coords.latitude;
-    console.log("Latitude:", position.coords.latitude);
-    console.log("Longitude:", position.coords.longitude);
+    longitude = position.coords.longitude;
+
+    fetch(
+      `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        let airQuality = data.list[0].main.aqi;
+        let displayAirQuality = aqiMeaning[airQuality];
+        airQualityelement.textContent =
+          airQualityelement.textContent +
+          " " +
+          airQuality +
+          "-" +
+          displayAirQuality;
+      })
+      .catch((error) => console.error(error.message));
     getWeatherData();
   },
   (error) => {
@@ -29,81 +54,66 @@ navigator.geolocation.getCurrentPosition(
     console.error("Error Code:", error.code, "-", error.message);
   }
 );
-let weatherData = [];
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+
+
+
+//Get weather Data function
 async function getWeatherData() {
   try {
     let response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${"c1482848b4593d224d394f35ca73bdab"}`
+      `https://api.weatherapi.com/v1/forecast.json?key=${primaryApiKey}&q=${latitude},${longitude}&days=1`
     );
     if (!response.ok) {
       throw new Error("Something went Wrong..");
     }
-    weatherData = await response.json();
-
-    cityName.textContent = weatherData.name;
-
-    weatherCondition.textContent = capitalize(
-      weatherData.weather[0].description
-    );
-
-    humidity.textContent = weatherData.main.humidity + "%";
-
-    let sunRiseTiming = getSunTime(weatherData.sys.sunrise);
-    let sunSetTiming = getSunTime(weatherData.sys.sunset);
-    sunRise.textContent = sunRiseTiming;
-    sunSet.textContent = sunSetTiming;
-
-    let speed = weatherData.wind.speed * 3.6;
-    windSpeed.textContent =
-      windSpeed.textContent + "   " + speed.toFixed(1) + " " + "km/h";
-
-    let temp = weatherData.main.temp - 273.15;
-    temperature.textContent = parseInt(temp) + "\u00B0";
-
-    let data = weatherData.main;
-    let hpa = " " + "hPa";
-    pressure.textContent = data.pressure + hpa;
-      feelsLike.textContent = (data.feels_like-273.15).toFixed(0) + "\u00B0";
-      groundLevel.textContent = data.grnd_level + hpa;
-      seaLevel.textContent = data.sea_level + hpa;
-      visibility.textContent = (weatherData.visibility / 1000).toFixed(1) + " km/h";
-
-      let mintemp = weatherData.main.temp_min;  
-      let maxtemp = weatherData.main.temp_max;  
-      let avgtemp = ((mintemp - 273.15) + (maxtemp - 273.15)) / 2;
-      averageTemprature.textContent = Math.floor(avgtemp) + "\u00B0";
-      
-    console.log(weatherData);
+    let weatherData = await response.json();
+    console.log(weatherData.forecast.forecastday[0].day);
+    showWeather(weatherData);
   } catch (error) {
     console.error(error.message);
   }
 }
 
-function getSunTime(timestamp) {
-  let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  let date = new Date(timestamp * 1000);
-  let dubai = date.toLocaleString("en-US", {
-    timeZone: timeZone,
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-  return dubai;
+//Uv
+
+function getUV(uvi) {
+  if (uvi <= 2) return "Low";
+  if (uvi <= 5) return "Moderate";
+  if (uvi <= 7) return "High";
+  if (uvi <= 10) return "Very High";
+  if (uvi > 10) return "Extreme";
 }
 
-async function getForecastData() {
-    try {
-        let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Dubai&appid=${"c1482848b4593d224d394f35ca73bdab"}`);
-        if (!response.ok) {
-            throw ("Something Went Wrong...");
-        }
-        let data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error.message);
-    }
+function showWeather(weatherData) {
+  let currentData = weatherData.current;
+  let currentDayData = weatherData.forecast.forecastday[0].day;
+  let astro = weatherData.forecast.forecastday[0].astro;
+  cityName.textContent = weatherData.location.region;
+  let temp = currentData.temp_c;
+  temperature.textContent = temp.toFixed(0) + "\u00B0";
+  feelsLike.textContent = currentData.feelslike_c + "\u00B0";
+  humidity.textContent = currentData.humidity + "%";
+  pressure.textContent = currentData.pressure_mb + " " + "hPa";
+  uv.textContent = currentData.uv + " " + getUV(currentData.uv);
+  windSpeed.textContent = windSpeed.textContent + " " + currentData.wind_kph + "/kmh";
+  weatherCondition.textContent = currentData.condition.text;
+  sunRise.textContent = astro.sunrise;
+  sunSet.textContent = astro.sunset;
+  averageTemprature.textContent = currentDayData.avgtemp_c + "\u00B0";
+  visibility.textContent = currentDayData.avgvis_km + " " +"km" ;
 }
-getForecastData();
+
+// async function getForecastData() {
+//   try {
+//     let response = await fetch(
+//       `https://api.openweathermap.org/data/2.5/forecast?q=Dubai&appid=${apiKey}`
+//     );
+//     if (!response.ok) {
+//       throw "Something Went Wrong...";
+//     }
+//     let data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// }
