@@ -1,14 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 15px;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .box {
+        border: 1px solid black;
+        width: 100%;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box-group {
+        display: flex;
+        flex-wrap: wrap;
+        height: 450px;
+        gap: 10px;
+        width: 31.15%;
+        justify-content: center;
+        align-items: center;
+      }
+      .item {
+        border: 1px solid black;
+        height: calc(50% - 10px);
+        width: calc(50% - 10px);
+        place-content: center;
+        text-align: center;
+      }
+      @media (min-width: 1441px) {
+        .one {
+          width: 40%;
+        }
+        .two {
+          width: calc(60% - 20px);
+        }
+        .three {
+          width: calc(100% / 3);
+          
+        }
+
+        .eight {
+          width: calc(100% / 3);
+        }
+      }
+      @media (max-width: 1440px) {
+        .one {
+          width: 40%;
+          margin: auto;
+        }
+        .two {
+          width: 56%;
+          margin: auto;
+        }
+        .three,
+        .eight {
+          width: calc(50% - 50px);
+          margin: auto;
+        }
+        .box-group{
+          height: 220px;
+          width: 100%;
+        }
+        .item{
+          height: 80%;
+          width: calc(100% / 4 - 10px);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .one {
+          width: 50%;
+        }
+        .two,
+        .three {
+          flex: 0 0 calc(50% - 20px);
+        }
+        .three,
+        .eight {
+          width: calc(50% - 20px);
+        }
         
+      }
+      @media (max-width: 768px) {
+        .one {
+          width: 80%;
+          margin-left: 20px;
+        }
+        .two,
+        .three {
+          flex: 0 0 100%;
+          height: 250px;
+          overflow-x: auto;
+        }
+        .eight {
+          width: 90%;
+          margin: auto;
+        }
+        .box-group{
+          width: 100%;
+        }
+        .item{
+          width: calc(50% - 20px);
+        }
+      }
+      @media (max-width: 480px) {
+        .box {
+          flex-basis: 100%;
+          margin: 0;
+        }
+        .two,
+        .three {
+          height: 450px;
+        }
+        .item{
+        width: calc(50% - 10px);
+        }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box one">Basic info</div>
+    <div class="box two">Hourly forecast</div>
+    <div class="box three">Five day forecast</div>
+    <div class="box eight">Extra-Info</div>
+    <div class="box-group">
+      <div class="item four">uv Index</div>
+      <div class="item five">Humidity</div>
+      <div class="item six">Sun-rise</div>
+      <div class="item seven">Sun-set</div>
     </div>
-</body>
+  </body>
 </html>
